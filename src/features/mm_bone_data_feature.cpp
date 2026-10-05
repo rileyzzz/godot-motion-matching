@@ -124,7 +124,7 @@ BoneState MMBoneDataFeature::_sample_bone_state(Ref<Animation> p_animation, doub
 
     BoneState bone_state;
     bone_state.pos = global_transform.origin;
-    bone_state.rot = global_transform.basis.get_quaternion();
+    bone_state.rot = global_transform.basis.get_rotation_quaternion();
     bone_state.scl = global_transform.basis.get_scale();
     return bone_state;
 }

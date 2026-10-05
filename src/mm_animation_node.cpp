@@ -147,7 +147,8 @@ PackedFloat32Array MMAnimationNode::_update_current_animation(bool p_test_only) 
             blend_animation(
                 prev_info.name,
                 prev_info.time,
-                prev_info.delta,
+                // loop fix
+                MIN((prev_info.delta, prev_info.time),
                 prev_info.seeked,
                 prev_info.is_external_seeking,
                 prev_info.weight);
@@ -155,7 +156,7 @@ PackedFloat32Array MMAnimationNode::_update_current_animation(bool p_test_only) 
         blend_animation(
             _current_animation_info.name,
             _current_animation_info.time,
-            _current_animation_info.delta,
+            MIN(_current_animation_info.delta, _current_animation_info.time),
             _current_animation_info.seeked,
             _current_animation_info.is_external_seeking,
             _current_animation_info.weight);
